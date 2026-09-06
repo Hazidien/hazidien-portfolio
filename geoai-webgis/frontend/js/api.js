@@ -1,0 +1,1 @@
+async function analyze(payload){const response=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});let data={};try{data=await response.json()}catch{}if(!response.ok)throw new Error(data.detail||'Analysis request failed.');return data}
