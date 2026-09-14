@@ -8,7 +8,7 @@ const projects=[
 ];
 const grid=document.querySelector('#projectGrid');const modal=document.querySelector('#projectModal');const modalBody=document.querySelector('#modalBody');
 function imageTag(p,modalMode=false){const fallback=p.fallback?` onerror="this.onerror=null;this.src='${p.fallback}'"`:'';return `<img class="project-img" src="${p.img}" alt="${p.title} project visualization"${fallback}${modalMode?' style="border-radius:16px;margin:15px 0 20px"':''}>`}
-function render(list=projects){grid.innerHTML=list.map(p=>`<article class="project reveal" tabindex="0" role="button" aria-label="View ${p.title}" onclick="openProject(${p.id})" onkeydown="if(event.key==='Enter')openProject(${p.id})">${imageTag(p)}<div class="project-body"><div class="section-kicker">${p.cat}</div><h3>${p.title}</h3><div class="tags">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div><p>${p.desc}</p><span class="more">${p.link?'Open interactive map ↗':'View project →'}</span></div></article>`).join('');observeReveals()}
+function render(list=projects){grid.innerHTML=list.map(p=>`<article class="project reveal" tabindex="0" role="button" aria-label="View ${p.title}" onclick="openProject(${p.id})" onkeydown="if(event.key==='Enter')openProject(${p.id})">${imageTag(p)}<div class="project-body"><div class="section-kicker">${p.cat}</div><h3>${p.title}</h3><div class="tags">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div><p>${p.desc}</p><span class="more">${p.link?'Open interactive map ↗':'Click to read more →'}</span></div></article>`).join('');observeReveals()}
 function openProject(id){const p=projects.find(x=>x.id===id);const action=p.link?`<a class="btn primary" href="${p.link}" target="_blank" rel="noopener">Open Interactive Map ↗</a>`:'';modalBody.innerHTML=`<div class="section-kicker">${p.cat}</div><h2>${p.title}</h2><p class="modal-meta">${p.tools.join(' · ')}</p>${imageTag(p,true)}<p>${p.details}</p><div class="tags">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${action}`;modal.classList.add('open');document.body.style.overflow='hidden'}
 function closeProject(){modal.classList.remove('open');document.body.style.overflow=''}document.querySelector('#closeModal').onclick=closeProject;modal.addEventListener('click',e=>{if(e.target===modal)closeProject()});
 const evidenceModal=document.querySelector('#evidenceModal');const evidenceBody=document.querySelector('#evidenceBody');
@@ -46,6 +46,8 @@ document.querySelectorAll('.cert').forEach(card=>{
 
 const certificateStyle=document.createElement('style');
 certificateStyle.textContent=`
+  .project-body>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;min-height:6.2em;margin-bottom:18px}
+  .project .more{display:inline-block;margin-top:auto;color:#5bd0ff;font-weight:700;letter-spacing:.01em}
   .certificate-image{width:100%;height:auto;max-height:78vh;object-fit:contain;border-radius:16px;display:block;background:#06101c;margin-top:15px}
   .social,.social:visited,.social:hover,.social:active{color:#fff;text-decoration:none}
   .btn,.btn:visited,.btn:hover,.btn:active{color:#fff;text-decoration:none}
