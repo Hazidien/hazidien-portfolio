@@ -21,3 +21,37 @@ function closeCertificate(){certificateModal.classList.remove('open');document.b
 document.querySelectorAll('.cert-logo').forEach(el=>el.remove());
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProject();closeEvidence();closeCertificate()}});
 document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');const c=b.dataset.filter;render(c==='all'?projects:projects.filter(p=>p.cat===c))}));const menu=document.querySelector('#menu');const nav=document.querySelector('#navLinks');menu.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));function observeReveals(){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal:not(.visible)').forEach(x=>io.observe(x))}render();
+
+// Certificate previews: keep the existing cards and assets, but show the certificate inside the portfolio modal.
+const certificateAssets={
+  'LiDAR Data Classification & Contour Generation':{type:'pdf',src:'assets/sertif%20lidar.pdf'},
+  'Land Cover Change Prediction using QGIS & GeoSOS-FLUS':{type:'pdf',src:'assets/sertif%20pemodelan%20lahan.pdf'},
+  'Basic & Thematic Google Earth Engine':{type:'pdf',src:'assets/sertif%20gee.pdf'},
+  'Geographic Information System Training':{type:'image',src:'assets/sertif_hecras2.jpg',title:'Flood Modeling of Land Use Change & Prediction'}
+};
+
+openCertificate=function(title,provider){
+  const asset=certificateAssets[title]||certificateAssets['Geographic Information System Training'];
+  const displayTitle=asset.title||title;
+  const providerText=provider||'';
+  certificateBody.innerHTML=`<div class="section-kicker">Certificate</div><h2>${displayTitle}</h2><p class="modal-meta">${providerText}</p>${asset.type==='pdf'?`<iframe class="certificate-frame" src="${asset.src}#toolbar=1&navpanes=0&scrollbar=1" title="${displayTitle} certificate"></iframe>`:`<img class="certificate-image" src="${asset.src}" alt="${displayTitle} certificate">`}`;
+  certificateModal.classList.add('open');
+  document.body.style.overflow='hidden';
+};
+
+// Rename the fourth training card without changing the surrounding education layout.
+document.querySelectorAll('.cert').forEach(card=>{
+  const heading=card.querySelector('.cert-text strong');
+  if(heading&&heading.textContent.trim()==='Geographic Information System Training') heading.textContent='Flood Modeling of Land Use Change & Prediction';
+});
+
+// Prevent browser visited-link purple/blue defaults in the contact and hero action links.
+const certificateStyle=document.createElement('style');
+certificateStyle.textContent=`
+  .certificate-image{width:100%;height:auto;max-height:78vh;object-fit:contain;border-radius:16px;display:block;background:#06101c;margin-top:15px}
+  .social,.social:visited,.social:hover,.social:active{color:#fff;text-decoration:none}
+  .btn,.btn:visited,.btn:hover,.btn:active{color:#fff;text-decoration:none}
+  .btn.primary,.btn.primary:visited,.btn.primary:hover,.btn.primary:active{color:#07111f}
+  .nav-links a,.nav-links a:visited{color:#fff;text-decoration:none}
+`;
+document.head.appendChild(certificateStyle);
