@@ -164,3 +164,15 @@ body {
   body { background-size: cover, 92% auto, auto !important; }
   #certificates { scroll-margin-top: 76px !important; }
 }
+
+/* Final targeted polish: zoom the city background out slightly. */
+body {
+  background-size: cover, 82% auto, auto !important;
+  background-position: center, center center, center !important;
+}
+.nav-section-button {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+.nav-section-button:hover { color: #fff; }
