@@ -84,3 +84,10 @@
 #certificates .section-head{margin-top:112px!important}
 #certificates{scroll-margin-top:100px!important}
 @media(max-width:850px){#certificates .section-head{margin-top:72px!important}#certificates{scroll-margin-top:78px!important}}
+
+
+/* Clear separation between the final project cards and Certificates & Training. */
+#projects .projects{margin-bottom:132px!important}
+#certificates{scroll-margin-top:100px!important}
+#achievements{scroll-margin-top:100px!important}
+@media(max-width:850px){#projects .projects{margin-bottom:76px!important}#certificates,#achievements{scroll-margin-top:78px!important}}
