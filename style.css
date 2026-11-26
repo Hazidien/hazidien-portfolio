@@ -2,3 +2,31 @@
 /* Portfolio section order: software tools follow core capabilities */
 #tools{scroll-margin-top:90px}
 .evidence-modal-card .certificate-frame{height:76vh}
+
+/* More breathing room across the projects and certificates area */
+#projects{padding-top:128px;padding-bottom:132px}
+#projects .section-head{margin-bottom:56px}
+#projects .filters{margin-bottom:34px;row-gap:12px}
+#projects .projects{gap:30px;column-gap:28px;row-gap:34px}
+#projects .project-body{padding:27px 26px 29px}
+#projects .project-body h3{line-height:1.35;margin-bottom:8px}
+#projects .project-body .tags{margin:17px 0 18px;gap:9px}
+#projects .project-body>p{line-height:1.75;margin-top:0;margin-bottom:22px;min-height:7em}
+#certificates{padding-top:118px;padding-bottom:128px}
+#certificates .section-head{margin-bottom:54px}
+#certificates .certs{gap:20px;column-gap:22px;row-gap:20px}
+#certificates .cert{padding:22px 24px;min-height:94px;line-height:1.65}
+#certificates .cert-text{gap:8px}
+#contact{padding-top:125px;padding-bottom:120px}
+@media(max-width:850px){
+ #projects{padding-top:94px;padding-bottom:100px}
+ #projects .section-head{margin-bottom:36px}
+ #projects .projects{gap:24px}
+ #projects .project-body{padding:22px}
+ #projects .project-body>p{min-height:0}
+ #certificates{padding-top:92px;padding-bottom:100px}
+ #certificates .section-head{margin-bottom:36px}
+ #certificates .certs{gap:14px}
+ #certificates .cert{padding:18px}
+ #contact{padding-top:95px;padding-bottom:90px}
+}
