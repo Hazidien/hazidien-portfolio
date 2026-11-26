@@ -71,3 +71,10 @@
 }
 .modal-card{min-width:0;overflow-x:hidden}
 .modal-card .poster-full{min-width:0}
+
+
+/* Certificates navigation target and clearer spacing from the preceding content */
+#certificates{scroll-margin-top:92px;padding-top:130px!important}
+#certificates .section-head{margin-bottom:68px!important}
+#certificates .section-note{max-width:440px;line-height:1.75}
+@media(max-width:850px){#certificates{scroll-margin-top:76px;padding-top:72px!important}#certificates .section-head{margin-bottom:38px!important}}
