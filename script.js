@@ -57,5 +57,8 @@ const certificateStyle=document.createElement('style');certificateStyle.textCont
 `;document.head.appendChild(certificateStyle);
 
 
-/* Reliable in-page navigation for every section, accounting for the sticky header. */
-(()=>{document.querySelectorAll('.nav-links a[href^="#"]').forEach(link=>{link.addEventListener('click',event=>{const id=link.getAttribute('href').slice(1);const target=document.getElementById(id);if(!target)return;event.preventDefault();history.replaceState(null,'','#'+id);const header=document.querySelector('.nav');const offset=(header?.offsetHeight||0)+18;const top=target.getBoundingClientRect().top+window.scrollY-offset;window.scrollTo({top,behavior:'smooth'});document.querySelector('#navLinks')?.classList.remove('open')})})})();
+/* Native hash navigation is more reliable for every section, including Certificates & Achievements.
+   Keep the mobile menu close behavior without cancelling the browser's anchor scroll. */
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',()=>document.querySelector('#navLinks')?.classList.remove('open'));
+});
