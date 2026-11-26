@@ -55,3 +55,7 @@ const certificateStyle=document.createElement('style');certificateStyle.textCont
 .btn.primary,.btn.primary:visited,.btn.primary:hover,.btn.primary:active{color:#07111f}
 .nav-links a,.nav-links a:visited{color:#fff;text-decoration:none}
 `;document.head.appendChild(certificateStyle);
+
+
+/* Reliable in-page navigation for the Certificates section beneath the sticky header. */
+(()=>{const link=document.querySelector('.nav-links a[href="#certificates"]');const target=document.getElementById('certificates');if(!link||!target)return;link.addEventListener('click',event=>{event.preventDefault();history.replaceState(null,'','#certificates');const header=document.querySelector('.nav');const offset=(header?.offsetHeight||0)+18;const top=target.getBoundingClientRect().top+window.scrollY-offset;window.scrollTo({top,behavior:'smooth'});document.querySelector('#navLinks')?.classList.remove('open')})})();
