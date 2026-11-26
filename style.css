@@ -104,3 +104,37 @@ section[id] { scroll-margin-top: 88px; }
 @media (max-width: 850px) {
   section[id] { scroll-margin-top: 76px; }
 }
+
+
+/* Performance and native section navigation: keep the existing design intact. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+#certificates {
+  scroll-margin-top: 88px !important;
+}
+@media (max-width: 850px) {
+  html { scroll-padding-top: 76px; }
+  #certificates { scroll-margin-top: 76px !important; }
+}
+/* Fixed, full-screen backgrounds and multiple backdrop filters can stutter during scroll. */
+body {
+  background-attachment: scroll, scroll, scroll !important;
+}
+.nav {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(7,17,31,.94);
+}
+.skill, .project, .cert, .fact {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* Avoid costly hover movement while preserving the same card appearance. */
+.project, .cert, .skill, .tool-logo, .evidence-card {
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.project:hover, .cert:hover, .skill:hover, .tool-logo:hover, .evidence-card:hover {
+  transform: none;
+}
