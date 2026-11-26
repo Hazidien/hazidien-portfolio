@@ -57,8 +57,19 @@ const certificateStyle=document.createElement('style');certificateStyle.textCont
 `;document.head.appendChild(certificateStyle);
 
 
-/* Native hash navigation is more reliable for every section, including Certificates & Achievements.
-   Keep the mobile menu close behavior without cancelling the browser's anchor scroll. */
+/* Reliable section navigation: scroll to the section heading below the sticky header. */
 document.querySelectorAll('.nav-links a[href^="#"]').forEach(link=>{
-  link.addEventListener('click',()=>document.querySelector('#navLinks')?.classList.remove('open'));
+  link.addEventListener('click', event=>{
+    document.querySelector('#navLinks')?.classList.remove('open');
+    if(link.getAttribute('href') !== '#certificates') return;
+    const section = document.getElementById('certificates');
+    const heading = section?.querySelector('.section-head');
+    if(!section || !heading) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    history.replaceState(null, '', '#certificates');
+    const headerHeight = document.querySelector('.nav')?.getBoundingClientRect().height || 72;
+    const top = heading.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+    window.scrollTo({top, behavior:'smooth'});
+  }, true);
 });
