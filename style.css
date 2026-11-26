@@ -91,3 +91,16 @@
 #certificates{scroll-margin-top:100px!important}
 #achievements{scroll-margin-top:100px!important}
 @media(max-width:850px){#projects .projects{margin-bottom:76px!important}#certificates,#achievements{scroll-margin-top:78px!important}}
+
+
+/* Reliable sticky-header offsets and visible section navigation links. */
+section[id] { scroll-margin-top: 88px; }
+#certificates .section-head { margin-top: 0 !important; }
+.nav-links { gap: clamp(8px, 1.3vw, 18px); font-size: .82rem; }
+@media (min-width: 851px) and (max-width: 1100px) {
+  .nav-inner { gap: 14px; }
+  .nav-links { gap: 9px; font-size: .75rem; white-space: nowrap; }
+}
+@media (max-width: 850px) {
+  section[id] { scroll-margin-top: 76px; }
+}
