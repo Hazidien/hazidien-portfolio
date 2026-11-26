@@ -138,3 +138,29 @@ body {
 .project:hover, .cert:hover, .skill:hover, .tool-logo:hover, .evidence-card:hover {
   transform: none;
 }
+
+
+/* Small background zoom-out; retain the existing palette and layout. */
+body {
+  background-size: cover, 92% auto, auto !important;
+  background-position: center, center center, center !important;
+  background-repeat: no-repeat !important;
+}
+/* Recreated nav control styled exactly like the neighboring links. */
+.nav-section-button {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-section-button:hover { color: #fff; }
+#certificates { scroll-margin-top: 90px !important; }
+@media (max-width: 850px) {
+  body { background-size: cover, 92% auto, auto !important; }
+  #certificates { scroll-margin-top: 76px !important; }
+}
