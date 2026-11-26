@@ -30,3 +30,11 @@
  #certificates .cert{padding:18px}
  #contact{padding-top:95px;padding-bottom:90px}
 }
+
+/* Explicit section-to-section breathing room: Projects → Certificates */
+#projects{margin-bottom:0!important;padding-bottom:180px!important}
+#certificates{margin-top:0!important;padding-top:80px!important}
+@media(max-width:850px){
+ #projects{padding-bottom:105px!important}
+ #certificates{padding-top:55px!important}
+}
