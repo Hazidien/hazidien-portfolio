@@ -55,3 +55,19 @@
  #achievements .achievements-grid{gap:14px}
  #achievements .achievement{padding:18px}
 }
+
+/* Keep project poster artwork inside the project detail modal */
+.modal-card .poster-full{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  max-height:68vh;
+  object-fit:contain;
+  object-position:center;
+  margin:16px auto 20px;
+  border-radius:16px;
+  background:#06101c;
+}
+.modal-card{min-width:0;overflow-x:hidden}
+.modal-card .poster-full{min-width:0}
