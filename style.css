@@ -78,3 +78,9 @@
 #certificates .section-head{margin-bottom:68px!important}
 #certificates .section-note{max-width:440px;line-height:1.75}
 @media(max-width:850px){#certificates{scroll-margin-top:76px;padding-top:72px!important}#certificates .section-head{margin-bottom:38px!important}}
+
+
+/* Strong visual separation before Certificates & Training: keep the gap independent of project-card sizing. */
+#certificates .section-head{margin-top:112px!important}
+#certificates{scroll-margin-top:100px!important}
+@media(max-width:850px){#certificates .section-head{margin-top:72px!important}#certificates{scroll-margin-top:78px!important}}
