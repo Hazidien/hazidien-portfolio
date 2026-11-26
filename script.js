@@ -55,12 +55,3 @@ const certificateStyle=document.createElement('style');certificateStyle.textCont
 .btn.primary,.btn.primary:visited,.btn.primary:hover,.btn.primary:active{color:#07111f}
 .nav-links a,.nav-links a:visited{color:#fff;text-decoration:none}
 `;document.head.appendChild(certificateStyle);
-
-
-// Recreated Certificates navigation control: explicit, sticky-header-aware scroll.
-document.querySelector('#certificatesNav')?.addEventListener('click',()=>{
-  const section=document.getElementById('certificates');
-  if(!section)return;
-  section.scrollIntoView({behavior:'smooth',block:'start'});
-  nav.classList.remove('open');
-});
