@@ -55,21 +55,3 @@ const certificateStyle=document.createElement('style');certificateStyle.textCont
 .btn.primary,.btn.primary:visited,.btn.primary:hover,.btn.primary:active{color:#07111f}
 .nav-links a,.nav-links a:visited{color:#fff;text-decoration:none}
 `;document.head.appendChild(certificateStyle);
-
-
-/* Reliable section navigation: scroll to the section heading below the sticky header. */
-document.querySelectorAll('.nav-links a[href^="#"]').forEach(link=>{
-  link.addEventListener('click', event=>{
-    document.querySelector('#navLinks')?.classList.remove('open');
-    if(link.getAttribute('href') !== '#certificates') return;
-    const section = document.getElementById('certificates');
-    const heading = section?.querySelector('.section-head');
-    if(!section || !heading) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    history.replaceState(null, '', '#certificates');
-    const headerHeight = document.querySelector('.nav')?.getBoundingClientRect().height || 72;
-    const top = heading.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
-    window.scrollTo({top, behavior:'smooth'});
-  }, true);
-});
