@@ -38,3 +38,20 @@
  #projects{padding-bottom:105px!important}
  #certificates{padding-top:55px!important}
 }
+
+/* Clear separation after the final project row before Certificates & Training */
+#projects{padding-bottom:240px!important}
+#certificates{padding-top:110px!important}
+#achievements{padding-top:118px;padding-bottom:128px}
+#achievements .section-head{margin-bottom:48px}
+#achievements .achievements-grid{gap:20px;column-gap:22px;row-gap:20px}
+#achievements .achievement{padding:22px 24px;min-height:94px;line-height:1.65}
+#achievements .achievement .cert-text{gap:8px}
+@media(max-width:850px){
+ #projects{padding-bottom:125px!important}
+ #certificates{padding-top:65px!important}
+ #achievements{padding-top:75px;padding-bottom:90px}
+ #achievements .section-head{margin-bottom:30px}
+ #achievements .achievements-grid{gap:14px}
+ #achievements .achievement{padding:18px}
+}
