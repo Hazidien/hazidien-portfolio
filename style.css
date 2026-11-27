@@ -176,3 +176,10 @@ body {
   text-decoration: none;
 }
 .nav-section-button:hover { color: #fff; }
+
+/* Restore the full city background image coverage. */
+body {
+  background-size: cover, cover, auto !important;
+  background-position: center, center, center !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+}
